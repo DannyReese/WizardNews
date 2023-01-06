@@ -4,7 +4,6 @@ const app = express();
 app.get("/", (req, res) => res.send('wizard newws'));
 
 const PORT = 1337;
-const PORT2 = H4CK3R
 
 app.listen(PORT, () => {
   // app.get("/", (req, res) => res.send("Hello"));
