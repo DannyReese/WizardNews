@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
         <div class='news-item'>
           <p>
             <span class="news-position">${post.id}. ▲</span>
-            ${post.title}
+            <a href="/posts/${post.id}">${post.title}</a>
             <small>(by ${post.name})</small>
           </p>
           <small class="news-info">
@@ -43,6 +43,10 @@ app.get("/", (req, res) => {
 app.get('/posts/:id', (req, res) => {
   const id = req.params.id;
   const post = postBank.find(id);
+  
+  if(!post.id){
+    throw new Error("Not Found")
+  }else{
   const html = `
    <html>
   <head>
@@ -64,10 +68,26 @@ app.get('/posts/:id', (req, res) => {
     </html>
   `
   res.send(html)
+  }
+
 
 })
 
-
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  const html = ` 
+  <html>
+  <head>
+    <title>Wizard News</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+  <header><img src="/logo.png"/>Wizard News</header>
+  <h2>Wrong Path I Will Eat Your Face NOMNONLOM 404</h2>
+  </body>
+  </html>`
+  res.status(404).send(html)
+})
 
 const PORT = 1337;
 
