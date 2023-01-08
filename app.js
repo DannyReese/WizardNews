@@ -1,16 +1,16 @@
 const express = require("express");
 const morgan = require("morgan");
-// const volleyball = require("volleyball");
+const volleyball = require("volleyball");
 const postBank = require('./postBank');
 const postDetails = require('./views/postDetails');
 const postList = require('./views/postList');
 const errorPage = require('./views/errorPage')
-const html = require("html-template-tag")
+
 
 const app = express();
 const {PORT = 1337} = process.env;
 
-app.use( morgan('dev'), express.static('public'));
+app.use( morgan('dev'), volleyball, express.static('public'));
 
 app.get("/", (req, res) => {
   const posts = postBank.list();
@@ -35,9 +35,7 @@ app.get('/posts/:id', (req, res) => {
 
 app.use((err, req, res, next) => {
   console.error(err.stack)
-
-
-  res.status(404).send(errorPage())
+res.status(404).send(errorPage())
 });
 
 
