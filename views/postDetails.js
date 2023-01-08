@@ -1,5 +1,7 @@
+const html = require("html-template-tag")
+
 const postDetails = (post)=>{
-    return( `
+    return(html`
     <!DOCTYPE html>
     <html>
       <head>

@@ -1,6 +1,7 @@
+const html = require("html-template-tag")
+
 const errorPage = ()=>{
-    return(
-    ` 
+    return(html` 
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,7 +10,7 @@ const errorPage = ()=>{
   </head>
   <body>
     <header><img src="/logo.png"/>Wizard News</header>
-    <h2>Wrong Path I Will Eat Your Face NOMNONLOM 404</h2>
+    <h2>Sorry page not found 404</h2>
   </body>
 </html>`
     )
