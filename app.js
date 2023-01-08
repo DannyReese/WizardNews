@@ -2,10 +2,12 @@ const express = require("express");
 const morgan = require("morgan");
 const volleyball = require("volleyball");
 const postBank = require('./postBank');
-const postDetails = require('./views/postDetails')
-const postList = require('./views/postList')
+const postDetails = require('./views/postDetails');
+const postList = require('./views/postList');
+const html = require("html-template-tag")
 
 const app = express();
+const {PORT = 1337} = process.env;
 
 app.use(morgan('dev'), volleyball, express.static('public'));
 
@@ -48,9 +50,9 @@ app.use((err, req, res, next) => {
   res.status(404).send(html)
 });
 
-const {PORT = 1337} = process.env;
+
 
 app.listen(PORT, () => {
-  console.log("hey hey");
+  console.log(`Listening on Port: ${PORT}`);
 });
 

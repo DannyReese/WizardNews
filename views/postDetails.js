@@ -8,7 +8,7 @@ const postDetails = (post)=>{
       </head>
       <body>
         <div class="news-list">
-          <header><img src="/logo.png"/>Wizard News</header>
+          <header><img src="/logo.png"/><a href="/">Wizard News</a></header>
           <div class='news-item'>
             <p>
               ${post.title}

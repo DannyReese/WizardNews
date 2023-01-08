@@ -1,4 +1,4 @@
-const errorPage = ()=>{ 
+const errorPage = ()=>{
     return(
     ` 
 <!DOCTYPE html>
